@@ -8,36 +8,15 @@ using System.Threading.Tasks;
 
 namespace Cwk.TMW.Common.Types
 {
-    public record Height : IMeasurementConvertible<Height>
+    public record Age : IMeasurementConvertible<Age>
     {
-        public Height(double value, MeasurementSystem system)
+        public Age(double value, MeasurementSystem system)
         {
             Value = value;
             MeasurementSystem = system;
         }
 
-        private Height() { }
+        private Age() { }
 
         public double Value { get; init; }
-        public MeasurementSystem MeasurementSystem { get; init; }
 
-        public Height ConvertFromMetricToImperial()
-        {
-            if (MeasurementSystem == MeasurementSystem.Imperial)
-                return this;
-
-            var valueInMeters = Value * 100;
-            return new Height(valueInMeters * 3.28, MeasurementSystem.Imperial);
-        }
-
-        public Height ConvertFromImperialToMetric()
-        {
-            if (MeasurementSystem == MeasurementSystem.Metric)
-                return this;
-
-            var valueInCentimeters = (Value * 0.30) / 100;
-            return new Height(valueInCentimeters, MeasurementSystem.Metric);
-        }
-
-    }
-}
