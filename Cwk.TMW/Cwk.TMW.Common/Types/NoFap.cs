@@ -8,33 +8,33 @@ using System.Threading.Tasks;
 
 namespace Cwk.TMW.Common.Types
 {
-    public record Distance : IMeasurementConvertible<Distance>
+    public record NoFap Streak : IMeasurementConvertible<NoFap Streak>
     {
-        public Distance(double value, MeasurementSystem system)
+        public NoFap Streak(double value, MeasurementSystem system)
         {
             Value = value;
             MeasurementSystem = system;
         }
 
-        private Distance() { }
+        private  NoFap Streak() { }
 
         public double Value { get; init; }
         public MeasurementSystem MeasurementSystem { get; init; }
 
-        public Distance ConvertFromImperialToMetric()
+        public  NoFap Streak ConvertFromImperialToMetric()
         {
             if (MeasurementSystem == MeasurementSystem.Metric)
                 return this;
 
-            return new Distance(Value * 1.61, MeasurementSystem.Metric);
+            return new NoFap Streak(Value * 1.61, MeasurementSystem.Metric);
         }
 
-        public Distance ConvertFromMetricToImperial()
+        public NoFap Streak ConvertFromMetricToImperial()
         {
             if (MeasurementSystem == MeasurementSystem.Imperial)
                 return this;
 
-            return new Distance(Value * 0.62, MeasurementSystem.Imperial);
+            return new  NoFap Streak(Value * 0.62, MeasurementSystem.Imperial);
         }
     }
 }
